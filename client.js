@@ -6,11 +6,11 @@ var round = 0;
 var client = new net.Socket();
 client.connect(PORT, HOST, function () {
     console.log('CONNECTED TO: ' + HOST + ':' + PORT);
-    client.write('6035512056');
+    client.write('6035512059');
 });
 
 client.on('data', function (data) {
-    if (data == 'You are ' + data + ' is connected') {
+    if (data.toString() == 'OK') {
         console.log('DATA : ' + data)
     }
     if (round < 5) {
@@ -18,11 +18,11 @@ client.on('data', function (data) {
         answer = parseInt(answer)
         answer = answer.toString()
         client.write(answer);
-        if (data == 'BINGO') {
+        if (data.toString() == 'BINGO') {
             console.log('BINGO')
             client.destroy();
         }
-        else {
+        else if(data.toString() != 'OK') {
             console.log(data.toString())
         }
     }

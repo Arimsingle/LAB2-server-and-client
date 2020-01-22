@@ -10,10 +10,10 @@ net.createServer(function (server) {
     server.on('data', function (data) {
         if (i == 0) {
             console.log('DATA Student => ' + data);
-            server.write('You are ' + data + ' is connected');
+            server.write('OK');
             i = 1
         }
-        if (data == answer.toString()) {
+        if (data.toString() == answer.toString()) {
             server.write('BINGO');
             console.log('VALUE OLD: '+answer)
             answer = parseInt(answer)
