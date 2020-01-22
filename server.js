@@ -15,11 +15,11 @@ net.createServer(function (server) {
         }
         if (data.toString() == answer.toString()) {
             server.write('BINGO');
-            console.log('VALUE OLD: '+answer)
+            console.log('OLD VALUE : '+answer)
             answer = parseInt(answer)
             answer = Math.floor(Math.random() * 21);
             answer = parseInt(answer)
-            console.log('VALUE NEW: '+answer)
+            console.log('NEW VALUE : '+answer)
         }
         else {
             server.write('ผิดจ้าา');
